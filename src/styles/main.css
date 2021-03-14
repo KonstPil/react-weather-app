@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem;
+    font-size: 17px;
+    font-family: Arial;
+    background: #ABCDEF;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.block{
+    width: 80%;
+}
+
+#headBlock{
+    height: 300px;
+    width: 30%;
+}
+
+#searchField input {
+    box-sizing: border-box;
+    outline: none;
+    width: 50%;
+    height: 35px;
+    font-size: 1rem;
+    padding: 6px;
+}
+
+#headBlock button {
+    width: 50%;
+    padding: 6px;
+    border: none;
+    background: rgba(25, 158, 83, 0.4);
+    margin-top: 10px;
+}
+
+.geolocation-icon {
+    background: url('../assets/currentGeolocation.ico');
+    background-size: cover;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin: 0 5px;
+}
