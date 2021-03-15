@@ -9,7 +9,7 @@ function Main({loading, errorMessage, weather: {weather, main}}) {
         {loading && <Loader/>}
         {errorMessage && <h2>{errorMessage}</h2>}
         {
-            weather &&
+            weather && !errorMessage && !loading &&
             <div>
                 <FlexStyled>
                     <WeatherIcon icon = {weather[0].icon}></WeatherIcon>

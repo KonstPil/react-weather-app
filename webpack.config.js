@@ -3,8 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
 
 module.exports = {
     mode: 'development',
@@ -20,9 +24,19 @@ module.exports = {
         port: 3300,
         hot: true,
     },
+    optimization: {
+        minimize: isProd,
+        minimizer: [
+            new TerserPlugin(),
+            new OptimizeCssAssetsPlugin()
+        ],
+    },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './index.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -33,9 +47,12 @@ module.exports = {
                 },
             ],
         }),
-        new Dotenv()
+        new Dotenv(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[fullhash].css',
+        }),
     ],
-    devtool: isDev ? "source-map" : '',
+    devtool: "source-map" ,
     module: {
         rules: [
             {
@@ -57,7 +74,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.(png|ico)$/,
