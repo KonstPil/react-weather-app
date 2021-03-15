@@ -7,7 +7,7 @@ Web приложение для поулчения погоды через api [
 Установить все зависимости
 
 ```sh
-cd weatherApp
+cd react-weather-app
 npm i
 ```
 
