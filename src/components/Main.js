@@ -18,7 +18,7 @@ function Main({loading, errorMessage, weather: {weather, main}}) {
             <div>
                 <FlexStyled>
                     <WeatherIcon icon = {weather[0].icon}></WeatherIcon>
-                    <div id="mainTemp">{Math.round(main.temp)} &#8451;</div>
+                    <div id="mainTemp">{Math.round(main.temp)} &#176;</div>
                 </FlexStyled>
                 <h4 id="weatherDesc">{getWeatherDescription()}</h4>
             </div>
