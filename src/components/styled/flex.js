@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const FlexStyled = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: ${props => props.wrap || 'wrap'};
     flex-direction: ${props => props.direction || 'row'};
     align-items: ${props => props.align || 'center'};
     align-content: center;

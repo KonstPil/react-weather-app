@@ -1,5 +1,6 @@
 .container{
     width: 100%;
+    min-width: 1250px;
     min-height: 100vh;
     padding: 3rem;
     font-size: 17px;
@@ -11,6 +12,10 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
+}
+
+body{
+    overflow: hidden;
 }
 
 .block{
@@ -31,12 +36,28 @@
     padding: 6px;
 }
 
+#mainTemp {
+    font-size: 120px;
+}
+
+#weatherDesc {
+    text-align: center;
+}
+
 #headBlock button {
     width: 50%;
     padding: 6px;
     border: none;
     background: rgba(25, 158, 83, 0.4);
     margin-top: 10px;
+}
+
+.weatherDataUnit{
+    font-size: 20px;
+}
+
+.weatherDataUnit span{
+    font-weight: 500;
 }
 
 .geolocation-icon {

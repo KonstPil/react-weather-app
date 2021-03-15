@@ -58,7 +58,7 @@ export default function App() {
         <div className="container">
             <Head {...{fetchWeatherDataByCityName, fetchWeatherDataByGeolocation, weather, showInput, changeCity}}/>
             <Main {...{loading, errorMessage, weather}}/>
-            <Footer {...{weather}}/>
+            {!errorMessage && !loading && <Footer weather = {weather}/>}
         </div>
     );
 }
